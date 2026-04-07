@@ -7,9 +7,13 @@ dotenv.config();
 // Atlas uses SRV DNS lookups; some local resolvers reject these on Windows networks.
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI?.trim();
 
 export const connectDB = async () => {
+    if (!MONGO_URI) {
+        throw new Error("MONGO_URI is missing in environment variables");
+    }
+
     try {
         await mongoose.connect(MONGO_URI, {
             serverSelectionTimeoutMS: 10000,
