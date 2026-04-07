@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5001/api/notes";
+const API_BASE = window.BREADCRUMB_CONFIG?.API_BASE || "http://localhost:5001/api/notes";
 
 const elements = {
   apiState: document.getElementById("apiState"),
