@@ -128,7 +128,7 @@ const loadNotes = async () => {
     elements.notesList.innerHTML = `
       <div class="empty-state">
         <strong>Backend unavailable.</strong>
-        <p>Make sure the API is running on port 5001.</p>
+        <p>Make sure the API is reachable at ${API_BASE}.</p>
       </div>
     `;
   }
